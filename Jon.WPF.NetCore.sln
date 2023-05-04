@@ -25,8 +25,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{F6011491-9F40-4D66-9C12-8692C2A4B4CC}"
 	ProjectSection(SolutionItems) = preProject
 		ColorPickerBuild.md = ColorPickerBuild.md
-		TimePicker.md = TimePicker.md
 		PasswordStengthIndicator.md = PasswordStengthIndicator.md
+		TimePicker.md = TimePicker.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "README", "README", "{38C3EDBE-3366-4ED9-9056-39CC5ED4A704}"
@@ -34,6 +34,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "README", "README", "{38C3ED
 		RatingControlREADME.md = RatingControlREADME.md
 		TimePickerREADME.md = TimePickerREADME.md
 		ToggleSwitchREADME.md = ToggleSwitchREADME.md
+		WatermarkTextBox.md = WatermarkTextBox.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Prompts", "Prompts", "{F7452675-3173-44A3-9BFE-BE6DD151C68B}"
