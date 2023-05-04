@@ -1,0 +1,144 @@
+﻿<Window
+    x:Class="Jon.WPF.NetCore.WpfTestDriver.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Jon.WPF.NetCore.UserControls.MostWanted.Controls;assembly=Jon.WPF.NetCore.UserControls.MostWanted"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="http://schemas.modernwpf.com/2019"
+    Title="MainWindow"
+    Width="764"
+    Height="1027"
+    ui:WindowHelper.UseModernWindowStyle="True"
+    SizeToContent="Height"
+    mc:Ignorable="d">
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                <GroupBox Margin="15,0,15,0">
+                    <GroupBox.Header>
+                        <TextBlock FontSize="18" Text="TimePicker" />
+                    </GroupBox.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <controls:TimePicker
+                            Margin="20"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" />
+                        <TextBlock
+                            Grid.Column="1"
+                            Margin="10"
+                            Text="The Time Picker control is a user interface component that allows users to select a specific time value within a given range. This control is implemented in WPF .NET Core v6.0 and provides a flexible and customizable way to pick time values in your applications."
+                            TextWrapping="WrapWithOverflow" />
+                    </Grid>
+                </GroupBox>
+                <GroupBox Margin="15,0,15,0">
+                    <GroupBox.Header>
+                        <TextBlock FontSize="18" Text="ToggleSwitch" />
+                    </GroupBox.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <controls:ToggleSwitch
+                            Width="85"
+                            Margin="20"
+                            VerticalAlignment="Center"
+                            IsOn="False"
+                            OffText="Off"
+                            OnText="On" />
+                        <TextBlock
+                            Grid.Column="1"
+                            Margin="10"
+                            Text="The ToggleSwitch Control for WPF is a customizable .NET Core v6.0 framework control that provides a user-friendly way to toggle settings on or off. With customizable 'on' and 'off' text labels, the control offers a clear visual indication of the current setting state. Integrating the ToggleSwitch Control into a WPF application involves adding the control to the project, including the namespace declaration, using the control in XAML, and handling setting change events. The control has dependency properties such as `OnText`, `OffText`, and `IsOn`, and fires the `IsOnChanged` event when the `IsOn` property changes. Customization and data binding are supported, and contributions to the open-source project are welcomed."
+                            TextWrapping="WrapWithOverflow" />
+                    </Grid>
+
+                </GroupBox>
+                <GroupBox Margin="15,0,15,0">
+                    <GroupBox.Header>
+                        <TextBlock FontSize="18" Text="Rating Control" />
+                    </GroupBox.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <controls:RatingControl
+                            Width="150"
+                            Margin="20"
+                            VerticalAlignment="Center" />
+                        <TextBlock
+                            Grid.Column="1"
+                            Margin="10"
+                            Text="The RatingControl is a WPF user control that enables users to rate items on a 1-5 star scale. This versatile control allows for editable and read-only modes, half-star precision, and exposes a `RatingValue` property for binding to a ViewModel. The control is easily implemented in XAML and can be customized through various style resources, such as `RatingStarStyle`, `RatingThumbStyle`, and different background and border brushes. Developed by Jon on behalf of Most Wanted Inc., the RatingControl offers a visually appealing and functional tool for user-driven item ratings."
+                            TextWrapping="WrapWithOverflow" />
+                    </Grid>
+
+                </GroupBox>
+                <GroupBox Margin="15,0,15,0">
+                    <GroupBox.Header>
+                        <TextBlock FontSize="18" Text="ColorPicker" />
+                    </GroupBox.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <controls:ColorPicker
+                            Margin="20"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" />
+                        <TextBlock
+                            Grid.Column="1"
+                            Margin="10"
+                            Text="The Color Picker user control is a custom control designed for selecting and manipulating colors within an application. Users can select colors through a color palette, adjust colors using Hue, Saturation, and Value sliders, input hex code values, and modify color opacity. The control also provides a color preview and raises an event when the selected color changes. Designed with a modern and sleek appearance, the control follows the Model-View-ViewModel (MVVM) architectural pattern and consists of a View, ViewModel, and Model. The API exposes properties like `SelectedColor`, `Opacity`, and a `ColorChanged` event. Rigorous testing and documentation will ensure the control's efficiency, responsiveness, and ease of use, making it a valuable addition to any application requiring color selection and manipulation."
+                            TextWrapping="WrapWithOverflow" />
+                    </Grid>
+                </GroupBox>
+                <GroupBox Margin="15,0,15,0">
+                    <GroupBox.Header>
+                        <TextBlock FontSize="18" Text="Watermark TextBox" />
+                    </GroupBox.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <!--<controls:Accordion
+                            x:Name="AccordionMain"
+                            Margin="20"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                            <controls:Accordion.Items>
+                                <controls:AccordionItem HeaderText="Item 1">
+                                    <TextBlock Text="This is the content for Accordion Item 1." />
+                                </controls:AccordionItem>
+                                <controls:AccordionItem HeaderText="Item 2">
+                                    <TextBlock Text="This is the content for Accordion Item 2." />
+                                </controls:AccordionItem>
+                                <controls:AccordionItem HeaderText="Item 3">
+                                    <TextBlock Text="This is the content for Accordion Item 3." />
+                                </controls:AccordionItem>
+                            </controls:Accordion.Items>
+                        </controls:Accordion>-->
+                        <controls:WatermarkTextBox
+                            Width="200"
+                            WatermarkColor="Red"
+                            WatermarkText="Enter Text Here" />
+                        <TextBlock
+                            Grid.Column="1"
+                            Margin="10"
+                            Text="The Watermark TextBox is a custom WPF user control for C# .NET Core, displaying watermark text in an input field when it is empty. The watermark text serves as a hint or placeholder and disappears once the user focuses on the control or starts typing. The control allows customization of the watermark text, watermark color, foreground, and background colors. It also supports data binding for the TextBox value. The Watermark TextBox user control enhances user experience in applications requiring input fields with hints or default values and provides a simple, elegant solution for developers."
+                            TextWrapping="WrapWithOverflow" />
+                    </Grid>
+                </GroupBox>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>

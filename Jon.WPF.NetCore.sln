@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jon.WPF.NetCore.UserControls.MostWanted", "Jon.WPF.NetCore.UserControls.MostWanted\Jon.WPF.NetCore.UserControls.MostWanted.csproj", "{02CC77B9-5402-407F-BB75-6F955675085B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{666F054E-26D7-4767-89AF-93AB36963FD1}"
+	ProjectSection(SolutionItems) = preProject
+		ControlOptions.md = ControlOptions.md
+		ControlSelections.md = ControlSelections.md
+		DualListBox.md = DualListBox.md
+		GpT4Ideas.md = GpT4Ideas.md
+		TimePicker.md = TimePicker.md
+		ToggleSwitch.md = ToggleSwitch.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jon.WPF.NetCore.WpfTestDriver", "Jon.WPF.NetCore.WpfTestDriver\Jon.WPF.NetCore.WpfTestDriver.csproj", "{263104FC-A239-4A3E-978F-37E7ACBAA90B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Completed", "Completed", "{944A8066-7F36-4887-B3DC-8F97753C221B}"
+	ProjectSection(SolutionItems) = preProject
+		TimePicker.md = TimePicker.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{F6011491-9F40-4D66-9C12-8692C2A4B4CC}"
+	ProjectSection(SolutionItems) = preProject
+		ColorPickerBuild.md = ColorPickerBuild.md
+		TimePicker.md = TimePicker.md
+		PasswordStengthIndicator.md = PasswordStengthIndicator.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "README", "README", "{38C3EDBE-3366-4ED9-9056-39CC5ED4A704}"
+	ProjectSection(SolutionItems) = preProject
+		RatingControlREADME.md = RatingControlREADME.md
+		TimePickerREADME.md = TimePickerREADME.md
+		ToggleSwitchREADME.md = ToggleSwitchREADME.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Prompts", "Prompts", "{F7452675-3173-44A3-9BFE-BE6DD151C68B}"
+	ProjectSection(SolutionItems) = preProject
+		Generate Spec Prompts.txt = Generate Spec Prompts.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02CC77B9-5402-407F-BB75-6F955675085B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02CC77B9-5402-407F-BB75-6F955675085B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02CC77B9-5402-407F-BB75-6F955675085B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02CC77B9-5402-407F-BB75-6F955675085B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{263104FC-A239-4A3E-978F-37E7ACBAA90B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{263104FC-A239-4A3E-978F-37E7ACBAA90B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{263104FC-A239-4A3E-978F-37E7ACBAA90B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{263104FC-A239-4A3E-978F-37E7ACBAA90B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{944A8066-7F36-4887-B3DC-8F97753C221B} = {666F054E-26D7-4767-89AF-93AB36963FD1}
+		{F6011491-9F40-4D66-9C12-8692C2A4B4CC} = {944A8066-7F36-4887-B3DC-8F97753C221B}
+		{38C3EDBE-3366-4ED9-9056-39CC5ED4A704} = {944A8066-7F36-4887-B3DC-8F97753C221B}
+		{F7452675-3173-44A3-9BFE-BE6DD151C68B} = {666F054E-26D7-4767-89AF-93AB36963FD1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E2F99D5A-58FF-479C-858A-5EBB2B448865}
+	EndGlobalSection
+EndGlobal

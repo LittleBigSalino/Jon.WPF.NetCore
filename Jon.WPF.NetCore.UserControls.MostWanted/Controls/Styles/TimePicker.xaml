@@ -1,0 +1,42 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Jon.WPF.NetCore.UserControls.MostWanted.Controls">
+    <Style TargetType="{x:Type local:TimePicker}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:TimePicker}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <ComboBox
+                            x:Name="PART_HourComboBox"
+                            Grid.Column="0"
+                            ItemsSource="{Binding Hours, RelativeSource={RelativeSource TemplatedParent}}"
+                            SelectedIndex="{Binding HourIndex, RelativeSource={RelativeSource TemplatedParent}}" />
+                        <TextBlock
+                            Grid.Column="1"
+                            Margin="4,0"
+                            VerticalAlignment="Center"
+                            Text=":" />
+                        <ComboBox
+                            x:Name="PART_MinuteComboBox"
+                            Grid.Column="2"
+                            ItemsSource="{Binding Minutes, RelativeSource={RelativeSource TemplatedParent}}"
+                            SelectedIndex="{Binding MinuteIndex, RelativeSource={RelativeSource TemplatedParent}}" />
+                        <ComboBox
+                            x:Name="PART_AmPmComboBox"
+                            Grid.Column="3"
+                            Margin="2,0,0,0"
+                            ItemsSource="{Binding AmPmOptions, RelativeSource={RelativeSource TemplatedParent}}"
+                            SelectedIndex="{Binding AmPmIndex, RelativeSource={RelativeSource TemplatedParent}}" />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
