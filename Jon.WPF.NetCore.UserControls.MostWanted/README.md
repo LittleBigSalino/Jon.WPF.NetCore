@@ -15,7 +15,7 @@ A WPF .NET Core v6.0 user control library containing customizable and easy-to-us
 
 ## Table of Contents
 
-- [ToggleSwitch Control](#toggleswitch-control-for-wpf)
+- [ToggleSwitch Control](#ToggleSwitch.md)
 - [Time Picker Control](#time-picker-control-specification)
 - [Rating Control](#ratingcontrol)
 - [Watermark TextBox Control](#watermark-textbox-control)
