@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <ImplicitUsings>disable</ImplicitUsings>
@@ -11,19 +10,31 @@
     <ApplicationIcon>icon.ico</ApplicationIcon>
     <Description>Commonly needed or missing WPF User Controls for .NET Core V6.0</Description>
     <PackageIcon>OIG.v.jpg</PackageIcon>
-    <RepositoryType>Devops</RepositoryType>
+    <RepositoryType></RepositoryType>
     <PackAsTool>False</PackAsTool>
     <Authors>Jon M. Sales</Authors>
     <Product>Jon.WPF.NetCore.Controls</Product>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
-    <AssemblyVersion>1.1</AssemblyVersion>
-    <FileVersion>1.1</FileVersion>
-    <Version>1.1</Version>
+    <AssemblyVersion>1.2</AssemblyVersion>
+    <FileVersion>1.2</FileVersion>
+    <Version>1.2</Version>
+    <TargetFrameworks>net6.0-windows</TargetFrameworks>
+    <PackageProjectUrl>https://github.com/LittleBigSalino/Jon.WPF.NetCore</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/LittleBigSalino/Jon.WPF.NetCore</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="README.md" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="icon.ico" />
+    <Content Include="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -60,13 +71,6 @@
     <Compile Update="Controls\TimePicker.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
   </ItemGroup>
 
 </Project>
