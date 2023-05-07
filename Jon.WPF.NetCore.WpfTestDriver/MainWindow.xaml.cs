@@ -2,7 +2,9 @@
 using Jon.WPF.NetCore.UserControls.MostWanted.Controls;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,11 +22,42 @@ namespace Jon.WPF.NetCore.WpfTestDriver
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
-    {        
-        public MainWindow()
+    public partial class MainWindow : Window, INotifyPropertyChanged
+    {
+        private int _currentBlockSize;
+        public int CurrentBlockSize
         {
-            InitializeComponent();            
+            get => _currentBlockSize;
+            set
+            {
+                _currentBlockSize = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public MainWindow()
+        {            
+            InitializeComponent();
+            CurrentBlockSize = 10;
+            DataContext = this;
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+        
+
+        private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CurrentBlockSize -= 1;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            CurrentBlockSize += 1;
         }
     }
 }

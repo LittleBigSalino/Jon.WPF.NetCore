@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{666F054E-2
 		ControlSelections.md = ControlSelections.md
 		DualListBox.md = DualListBox.md
 		GpT4Ideas.md = GpT4Ideas.md
+		PromptBuilder.md = PromptBuilder.md
+		PasswordStrengthIndicator.md = PasswordStrengthIndicator.md
 		TimePicker.md = TimePicker.md
 		ToggleSwitch.md = ToggleSwitch.md
 	EndProjectSection
