@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="DefaultCategoryColor" Color="#4E94DB" />
+    <SolidColorBrush x:Key="DefaultCategoryForeground" Color="White" />
+    <SolidColorBrush x:Key="GrayBorderColor" Color="#FFD2D2D2" />
+    <SolidColorBrush x:Key="LightGrayBackgroundColor" Color="#FFF8F8F8" />
+    <SolidColorBrush x:Key="CategoryColor" Color="#6E9F00" />
+    <SolidColorBrush x:Key="CategoryForeground" Color="White" />
+    <SolidColorBrush x:Key="RowAlternatingBackground" Color="#F7F7F7" />
+    <SolidColorBrush x:Key="BorderBackgroundPropertyValueField" Color="LightGray" />
+
+</ResourceDictionary>

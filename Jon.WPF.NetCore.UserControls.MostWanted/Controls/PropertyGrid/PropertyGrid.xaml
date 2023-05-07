@@ -1,0 +1,64 @@
+﻿<UserControl
+    x:Class="Jon.WPF.NetCore.UserControls.MostWanted.Controls.PropertyGrid.PropertyGrid"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Jon.WPF.NetCore.UserControls.MostWanted.Controls.PropertyGrid"
+    MinWidth="300"
+    ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Jon.WPF.NetCore.UserControls.MostWanted;component/Controls/PropertyGrid/PropertyGridControlStyles.xaml" />
+                <ResourceDictionary Source="/Jon.WPF.NetCore.UserControls.MostWanted;component/Controls/PropertyGrid/Colors.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <SolidColorBrush x:Key="DefaultHeaderBackground" Color="#F1F1F1" />
+            <SolidColorBrush x:Key="DefaultHeaderBorderBrush" Color="#8C8C8C" />
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Border
+        BorderBrush="{DynamicResource DefaultHeaderBorderBrush}"
+        BorderThickness=".5"
+        CornerRadius="3"
+        ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <Border
+            BorderBrush="{DynamicResource DefaultHeaderBorderBrush}"
+            BorderThickness=".5"
+            CornerRadius="3"
+            ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Border
+                    Grid.Row="0"
+                    Background="{Binding CategoryBackground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:PropertyGrid}}}"
+                    BorderBrush="{Binding CategoryForeground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:PropertyGrid}}}"
+                    BorderThickness="1">
+
+                    <StackPanel>
+                        <TextBlock
+                            x:Name="TextBlockObjectTypeName"
+                            Margin="8,3,5,2"
+                            FontSize="14"
+                            FontWeight="SemiBold" />
+                        <TextBlock
+                            x:Name="TextBlockDescription"
+                            Margin="12,2,5,2"
+                            FontSize="11"
+                            FontStyle="Italic"
+                            FontWeight="Light"
+                            TextWrapping="WrapWithOverflow" />
+                    </StackPanel>
+                </Border>
+                <local:PropertyGridControl
+                    x:Name="propertyGridControl"
+                    Grid.Row="1"
+                    HorizontalAlignment="Stretch"
+                    CategoryBackground="{Binding RelativeSource={RelativeSource AncestorType=local:PropertyGrid}, Path=CategoryBackground}"
+                    CategoryColor="{Binding RelativeSource={RelativeSource AncestorType=local:PropertyGrid}, Path=CategoryColor}"
+                    CategoryForeground="{Binding RelativeSource={RelativeSource AncestorType=local:PropertyGrid}, Path=CategoryForeground}" />
+            </Grid>
+        </Border>
+    </Border>
+</UserControl>

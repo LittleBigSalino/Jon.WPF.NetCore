@@ -1,0 +1,174 @@
+﻿<UserControl
+    x:Class="Jon.WPF.NetCore.UserControls.MostWanted.Controls.PropertyGrid.PropertyGridControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Jon.WPF.NetCore.UserControls.MostWanted.Controls.PropertyGrid"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Jon.WPF.NetCore.UserControls.MostWanted;component/Controls/PropertyGrid/PropertyGridControlStyles.xaml" />
+                <ResourceDictionary Source="/Jon.WPF.NetCore.UserControls.MostWanted;component/Controls/PropertyGrid/Colors.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="TransparentHeaderStyle" TargetType="DataGridColumnHeader">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="Foreground" Value="Transparent" />
+            </Style>
+            <DataTemplate x:Key="CollectionTemplate">
+                <Button Click="OpenCollectionWindow" Content="..." />
+            </DataTemplate>
+            <local:PropertyGridValueTemplateSelector x:Key="PropertyGridValueTemplateSelector" CollectionTemplate="{StaticResource CollectionTemplate}" />
+        </ResourceDictionary>
+
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <ToggleButton
+                x:Name="CategorizedToggle"
+                Margin="0,5,0,5"
+                VerticalAlignment="Center"
+                Click="CategorizedToggle_Click"
+                IsChecked="{Binding CategorizedView, Mode=TwoWay, RelativeSource={RelativeSource AncestorType=UserControl}}">
+                <TextBlock
+                    x:Name="TextBlockCategorized"
+                    Margin="5,0,5,0"
+                    VerticalAlignment="Center"
+                    FontFamily="Segoe UI"
+                    FontSize="11"
+                    Text="Categorized:" />
+            </ToggleButton>
+        </StackPanel>
+        <local:CustomDataGrid
+            x:Name="propertyDataGrid"
+            Grid.Row="1"
+            AlternationCount="2"
+            AutoGenerateColumns="False"
+            Background="{Binding CategoryBackground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:PropertyGridControl}}}"
+            CanUserAddRows="False"
+            CanUserDeleteRows="False"
+            CanUserReorderColumns="False"
+            CanUserResizeColumns="True"
+            CanUserResizeRows="False"
+            CanUserSortColumns="False"
+            CategoryColor="{Binding CategoryColor, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:PropertyGridControl}}}"
+            CategoryForeground="{Binding CategoryForeground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:PropertyGridControl}}}"
+            HeadersVisibility="Column"
+            HorizontalScrollBarVisibility="Disabled"
+            IsReadOnly="False"
+            ItemsSource="{Binding Source={StaticResource GroupedPropertyEntries}}"
+            SelectedCellsChanged="PropertyDataGrid_SelectedCellsChanged">
+            <local:CustomDataGrid.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#FF0000" />
+            </local:CustomDataGrid.Resources>
+            <local:CustomDataGrid.RowStyle>
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Margin" Value="0,0,0,0" />
+                    <Style.Triggers>
+                        <Trigger Property="AlternationIndex" Value="1">
+                            <Setter Property="Background" Value="{StaticResource RowAlternatingBackground}" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </local:CustomDataGrid.RowStyle>
+            <local:CustomDataGrid.Columns>
+                <DataGridTemplateColumn Width="*" Header="Property">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid x:Name="GridNameColumnGrid">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <TextBlock
+                                    x:Name="PropertyTextBlock"
+                                    Grid.Row="0"
+                                    Margin="0,0,0,0"
+                                    Padding="5,0,5,0"
+                                    VerticalAlignment="Center"
+                                    FontFamily="Segoe UI"
+                                    FontSize="14"
+                                    FontWeight="SemiBold"
+                                    Text="{Binding Name, Converter={StaticResource PropertyNameConverter}}"
+                                    ToolTip="{Binding Description}" />
+                            </Grid>
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding IsCategory}" Value="True">
+                                    <Setter TargetName="PropertyTextBlock" Property="Foreground" Value="{DynamicResource CategoryForeground}" />
+                                    <Setter TargetName="PropertyTextBlock" Property="Background" Value="{Binding CategoryColor, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:PropertyGridControl}}}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type DataGridRow}}, Path=IsSelected}" Value="True">
+                                    <Setter TargetName="GridNameColumnGrid" Property="Background" Value="{Binding CategoryColor, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:PropertyGridControl}}}" />
+                                    <Setter TargetName="PropertyTextBlock" Property="Foreground" Value="{DynamicResource CategoryForeground}" />
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="*" Header="Value">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Value}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellEditingTemplate>
+                        <DataTemplate>
+                            <ContentControl Content="{Binding}" ContentTemplateSelector="{StaticResource PropertyGridValueTemplateSelector}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellEditingTemplate>
+                </DataGridTemplateColumn>
+            </local:CustomDataGrid.Columns>
+            <local:CustomDataGrid.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.ContainerStyle>
+                        <Style TargetType="{x:Type GroupItem}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type GroupItem}">
+                                        <Expander
+                                            Width="{Binding ElementName=propertyDataGrid, Path=ActualWidth}"
+                                            Background="{Binding CategoryColor, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type local:PropertyGridControl}}}"
+                                            IsExpanded="True">
+                                            <Expander.Header>
+                                                <TextBlock
+                                                    Margin="5,0,0,0"
+                                                    Padding="5"
+                                                    FontFamily="Segoe UI"
+                                                    FontSize="14"
+                                                    FontWeight="SemiBold"
+                                                    Foreground="{Binding RelativeSource={RelativeSource AncestorType={x:Type local:CustomDataGrid}}, Path=CategoryForeground}"
+                                                    Text="{Binding Name}" />
+                                            </Expander.Header>
+                                            <ItemsPresenter />
+                                        </Expander>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </GroupStyle.ContainerStyle>
+                </GroupStyle>
+            </local:CustomDataGrid.GroupStyle>
+        </local:CustomDataGrid>
+        <StackPanel Grid.Row="2" MinHeight="45">
+            <TextBlock
+                x:Name="TextBlockSelectedProperty"
+                Margin="8,3,5,2"
+                FontSize="14"
+                FontWeight="SemiBold" />
+            <TextBlock
+                x:Name="TextBlockSelectedPropertyDescription"
+                Margin="12,2,5,2"
+                FontSize="11"
+                FontStyle="Italic"
+                FontWeight="Light"
+                TextWrapping="WrapWithOverflow" />
+        </StackPanel>
+    </Grid>
+</UserControl>

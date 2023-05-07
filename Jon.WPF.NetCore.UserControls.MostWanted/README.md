@@ -1,5 +1,4 @@
-﻿
-# Jon.WPF.NetCore.Controls
+﻿# Jon.WPF.NetCore.Controls
 
 A WPF .NET Core v6.0 user control library containing customizable and easy-to-use controls for your WPF applications.
 
@@ -13,6 +12,7 @@ A WPF .NET Core v6.0 user control library containing customizable and easy-to-us
 - Watermark TextBox Control
 - Color Picker Control
 - Color Palette Control
+- PropertyGrid Control
 
 ## Table of Contents
 
@@ -22,6 +22,7 @@ A WPF .NET Core v6.0 user control library containing customizable and easy-to-us
 - [Watermark TextBox Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/WatermarkTextbox.md)
 - [Color Picker Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/ColorPicker.md)
 - [Color Palette Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/ColorPaletteControl.md)
+- [PropertyGrid Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/PropertyGrid.md)
 
 ## Getting Started
 
@@ -65,9 +66,9 @@ A TextBox control with a watermark feature, allowing you to display a placeholde
 
 Refer to the WatermarkTextBox Control Specification for more details, including properties, events, and customization options.
 
-### 5. ColorPicker
+### 5### 5. ColorPicker
 
-A ColorPicker control that allows users to choose a color from a color palette or define custom colors using RGB, HSL, or HEX values. This control provides an intuitive user interfacefor selecting colors.
+A ColorPicker control that allows users to choose a color from a color palette or define custom colors using RGB, HSL, or HEX values. This control provides an intuitive user interface for selecting colors.
 
 Refer to the ColorPicker Control Specification for more details, including properties, data binding, and customization options.
 
@@ -76,6 +77,12 @@ Refer to the ColorPicker Control Specification for more details, including prope
 A versatile Color Palette Control that enables users to pick colors from a user-defined color spectrum. The palette can be easily customized by adjusting its block dimensions and wrapping behavior, and it also provides a `SelectedColor` property to access the chosen color.
 
 Refer to the [Color Palette Control Specification](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/ColorPaletteControl.md) for more details, including properties, data binding, and customization options.
+
+### 7. PropertyGrid Control
+
+A PropertyGrid user control for displaying and editing object properties in a user-friendly way. It provides auto-generation features, customizable editors, and support for property decorators.
+
+Refer to the PropertyGrid Control Specification for more details, including properties, data binding, and customization options.
 
 ## License
 
