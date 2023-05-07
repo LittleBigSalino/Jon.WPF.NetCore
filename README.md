@@ -4,7 +4,7 @@ A WPF .NET Core v6.0 user control library containing customizable and easy-to-us
 
 ![image](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/SamplesMainWindow1.png)
 
-![image](SamplesMainWindow2.png)
+![image](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/SamplesMainWindow2.png)
 
 ## Controls
 
