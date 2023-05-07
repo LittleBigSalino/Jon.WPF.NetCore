@@ -16,9 +16,9 @@
     <Product>Jon.WPF.NetCore.Controls</Product>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
-    <AssemblyVersion>1.4</AssemblyVersion>
-    <FileVersion>1.4</FileVersion>
-    <Version>1.4</Version>
+    <AssemblyVersion>1.5</AssemblyVersion>
+    <FileVersion>1.5</FileVersion>
+    <Version>1.5</Version>
     <TargetFrameworks>net6.0-windows</TargetFrameworks>
     <PackageProjectUrl>https://github.com/LittleBigSalino/Jon.WPF.NetCore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/LittleBigSalino/Jon.WPF.NetCore</RepositoryUrl>
@@ -49,6 +49,10 @@
 
   <ItemGroup>
     <None Include="..\..\..\..\..\Users\jon.localadmin\Desktop\graphics\OIG.v.jpg">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>

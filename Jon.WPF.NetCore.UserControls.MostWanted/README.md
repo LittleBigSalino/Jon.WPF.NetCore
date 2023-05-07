@@ -2,7 +2,9 @@
 
 A WPF .NET Core v6.0 user control library containing customizable and easy-to-use controls for your WPF applications.
 
-![image](http://jonmsales.com/examplePicture.png)
+![image](SamplesMainWindow1.png)
+
+![image](SamplesMainWindow2.png)
 
 ## Controls
 
