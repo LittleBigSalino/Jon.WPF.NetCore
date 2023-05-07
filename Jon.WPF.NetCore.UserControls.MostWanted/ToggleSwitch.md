@@ -2,7 +2,7 @@
 
 A customizable ToggleSwitch Control for WPF applications built on the .NET Core v6.0 framework. This control provides a simple and intuitive way for users to toggle a setting on or off with customizable "on" and "off" text labels.
 
-![ToggleSwitch Control](ToggleSwitchControlScreenshot.png)
+![ToggleSwitch Control](ToggleSwitch.png)
 
 ## Features
 
