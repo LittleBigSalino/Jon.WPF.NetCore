@@ -2,6 +2,8 @@
 
 The Time Picker control is a user interface component that allows users to select a specific time value within a given range. This control is implemented in WPF .NET Core v6.0 and provides a flexible and customizable way to pick time values in your applications.
 
+![ToggleSwitch Control](TimePicker.png)
+
 ## Features
 
 - Allows selection of time values with a 12-hour or 24-hour clock format

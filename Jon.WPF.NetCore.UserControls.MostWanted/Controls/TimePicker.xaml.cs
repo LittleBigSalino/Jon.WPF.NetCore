@@ -1,19 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
 {
@@ -22,8 +12,86 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
     /// </summary>
     public partial class TimePicker : UserControl, INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
+        public DateTime? SelectedTime
+        {
+            get => (DateTime?)GetValue(SelectedTimeProperty);
+            set => SetValue(SelectedTimeProperty, value);
+        }
+        public DateTime? MinimumTime
+        {
+            get => (DateTime?)GetValue(MinimumTimeProperty);
+            set => SetValue(MinimumTimeProperty, value);
+        }
+        public DateTime? MaximumTime
+        {
+            get => (DateTime?)GetValue(MaximumTimeProperty);
+            set => SetValue(MaximumTimeProperty, value);
+        }
+        public bool Is24HourFormat
+        {
+            get => (bool)GetValue(Is24HourFormatProperty);
+            set => SetValue(Is24HourFormatProperty, value);
+        }
+        public List<string> AmPmOptions
+        {
+            get => _amPmOptions;
+        }
+        public int AmPmIndex
+        {
+            get => _amPmIndex;
+            set
+            {
+                _amPmIndex = value;
+                OnPropertyChanged();
 
+                UpdateSelectedTime();
+            }
+        }
+        public List<string> Hours
+        {
+            get => _hours;
+            set
+            {
+                _hours = value;
+                OnPropertyChanged();
+            }
+        }
+        public List<string> Minutes
+        {
+            get => _minutes;
+
+            set
+            {
+                _minutes = value;
+                OnPropertyChanged();
+            }
+        }
+        public int HourIndex
+        {
+            get => _hourIndex;
+            set
+            {
+                _hourIndex = value;
+                OnPropertyChanged();
+
+                UpdateSelectedTime();
+            }
+        }
+        public int MinuteIndex
+        {
+            get => _minuteIndex;
+            set
+            {
+                _minuteIndex = value;
+                OnPropertyChanged();
+
+                UpdateSelectedTime();
+            }
+        }
+        static TimePicker()
+        {
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(TimePicker), new FrameworkPropertyMetadata(typeof(TimePicker)));
+        }
         public TimePicker()
         {
             InitializeComponent();
@@ -33,55 +101,21 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
             Hours = GenerateHours();
             Minutes = GenerateMinutes();
         }
-
-        static TimePicker()
-        {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(TimePicker), new FrameworkPropertyMetadata(typeof(TimePicker)));
-        }
-
-        private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
+        private List<string> _amPmOptions = new() { "AM", "PM" };
+        private int _amPmIndex;
+        private List<string>? _hours;
+        private List<string>? _minutes;
+        private int _hourIndex;
+        private int _minuteIndex;
         public static readonly DependencyProperty SelectedTimeProperty = DependencyProperty.Register(
             nameof(SelectedTime), typeof(DateTime?), typeof(TimePicker), new PropertyMetadata(null, OnSelectedTimeChanged));
-
         public static readonly DependencyProperty MinimumTimeProperty = DependencyProperty.Register(
             nameof(MinimumTime), typeof(DateTime?), typeof(TimePicker), new PropertyMetadata(null));
-
         public static readonly DependencyProperty MaximumTimeProperty = DependencyProperty.Register(
             nameof(MaximumTime), typeof(DateTime?), typeof(TimePicker), new PropertyMetadata(null));
-
         public static readonly DependencyProperty Is24HourFormatProperty = DependencyProperty.Register(
             nameof(Is24HourFormat), typeof(bool), typeof(TimePicker), new PropertyMetadata(false, OnIs24HourFormatChanged));
-
-        public DateTime? SelectedTime
-        {
-            get => (DateTime?)GetValue(SelectedTimeProperty);
-            set => SetValue(SelectedTimeProperty, value);
-        }
-
-        public DateTime? MinimumTime
-        {
-            get => (DateTime?)GetValue(MinimumTimeProperty);
-            set => SetValue(MinimumTimeProperty, value);
-        }
-
-        public DateTime? MaximumTime
-        {
-            get => (DateTime?)GetValue(MaximumTimeProperty);
-            set => SetValue(MaximumTimeProperty, value);
-        }
-
-        public bool Is24HourFormat
-        {
-            get => (bool)GetValue(Is24HourFormatProperty);
-            set => SetValue(Is24HourFormatProperty, value);
-        }
-
-
-
+        public event PropertyChangedEventHandler? PropertyChanged;
         private static void OnSelectedTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var timePicker = (TimePicker)d;
@@ -91,7 +125,7 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
         {
             if (d is TimePicker timePicker)
             {
-                timePicker.GenerateHours();
+                timePicker.Hours = timePicker.GenerateHours(); // Add this line to update the Hours property
                 timePicker.OnSelectedTimeChanged();
 
                 // Update the visibility of the AM/PM ComboBox based on the Is24HourFormat property
@@ -101,18 +135,21 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
                 }
             }
         }
-
-        public override void OnApplyTemplate()
+        private static List<string> GenerateMinutes()
         {
-            base.OnApplyTemplate();
+            var minutes = new List<string>();
 
-            if (GetTemplateChild("PART_AmPmComboBox") is ComboBox amPmComboBox)
+            for (int i = 0; i < 60; i++)
             {
-                amPmComboBox.Visibility = Is24HourFormat ? Visibility.Collapsed : Visibility.Visible;
+                minutes.Add(i.ToString("D2"));
             }
+
+            return minutes;
         }
-
-
+        private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         private void OnSelectedTimeChanged()
         {
             if (SelectedTime.HasValue)
@@ -125,8 +162,6 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
                 }
             }
         }
-
-
         private List<string> GenerateHours()
         {
             var hours = new List<string>();
@@ -148,88 +183,6 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
 
             return hours;
         }
-
-        private static List<string> GenerateMinutes()
-        {
-            var minutes = new List<string>();
-
-            for (int i = 0; i < 60; i++)
-            {
-                minutes.Add(i.ToString("D2"));
-            }
-
-            return minutes;
-        }
-
-        private List<string> _amPmOptions = new() { "AM", "PM" };
-        public List<string> AmPmOptions
-        {
-            get => _amPmOptions;
-        }
-
-        private int _amPmIndex;
-        public int AmPmIndex
-        {
-            get => _amPmIndex;
-            set
-            {
-                _amPmIndex = value;
-                OnPropertyChanged();
-
-                UpdateSelectedTime();
-            }
-        }
-
-
-        private List<string>? _hours;
-        public List<string> Hours
-        {
-            get => _hours;
-            set
-            {
-                _hours = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private List<string>? _minutes;
-        public List<string> Minutes
-        {
-            get => _minutes;
-
-            set
-            {
-                _minutes = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private int _hourIndex;
-        public int HourIndex
-        {
-            get => _hourIndex;
-            set
-            {
-                _hourIndex = value;
-                OnPropertyChanged();
-
-                UpdateSelectedTime();
-            }
-        }
-
-        private int _minuteIndex;
-        public int MinuteIndex
-        {
-            get => _minuteIndex;
-            set
-            {
-                _minuteIndex = value;
-                OnPropertyChanged();
-
-                UpdateSelectedTime();
-            }
-        }
-
         private void UpdateSelectedTime()
         {
             if (HourIndex >= 0 && MinuteIndex >= 0)
@@ -243,8 +196,15 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
                 SelectedTime = new DateTime(1, 1, 1, hour, minute, 0);
             }
         }
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
 
+            if (GetTemplateChild("PART_AmPmComboBox") is ComboBox amPmComboBox)
+            {
+                amPmComboBox.Visibility = Is24HourFormat ? Visibility.Collapsed : Visibility.Visible;
+            }
+        }
     }
 }
 
-    
