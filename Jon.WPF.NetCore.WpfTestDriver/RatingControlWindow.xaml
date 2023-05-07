@@ -1,0 +1,23 @@
+﻿<Window
+    x:Class="Jon.WPF.NetCore.WpfTestDriver.RatingControlWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:Jon.WPF.NetCore.UserControls.MostWanted.Controls;assembly=Jon.WPF.NetCore.UserControls.MostWanted"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Jon.WPF.NetCore.WpfTestDriver"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="RatingControlWindow"
+    Width="800"
+    Height="450"
+    mc:Ignorable="d">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <controls:RatingControl x:Name="RatingControlMain" Margin="20" />
+            <TextBlock
+                Margin="5"
+                Text="Rating Value"
+                TextAlignment="Center" />
+            <TextBlock Text="{Binding RatingValue, ElementName=RatingControlMain}" TextAlignment="Center" />
+        </StackPanel>
+    </Grid>
+</Window>

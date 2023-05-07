@@ -2,9 +2,12 @@
 
 `RatingControl` is a versatile WPF user control that enables users to rate items on a scale of 1 to 5 stars.
 
+![Rating Control](RatingControl.png)
+
 ## Features
 
 - Clickable five-star rating system
+- Complete Scalable. Scales to fit
 - Read-only and editable mode options
 - Half-star rating support for increased precision
 - `RatingValue` property for binding to a ViewModel

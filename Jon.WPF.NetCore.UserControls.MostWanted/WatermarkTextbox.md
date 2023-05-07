@@ -2,7 +2,7 @@
 
 The WatermarkTextBox control is a custom user control for C# WPF .NET Core v6.0 that displays a watermark until the user starts typing. The control is often used for providing hints or default values for input fields. It offers a user-friendly and visually appealing way to interact with text inputs in your application.
 
-![WatermarkTextBox Control](WatermarkTextBoxScreenshot.png)
+![WatermarkTextBox Control](WatermarkTextbox.png)
 
 ## Features
 

@@ -2,6 +2,8 @@
 
 A custom user control for selecting and manipulating colors in a visually intuitive way.
 
+![ColorPicker Control](ColorPicker.png)
+
 ## Table of Contents
 
 - [Overview](#overview)

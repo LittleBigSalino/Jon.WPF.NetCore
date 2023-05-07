@@ -2,7 +2,7 @@
 
 A versatile and customizable color picker control for WPF .NET 6.0 applications. This user control allows users to select a color from a full color spectrum with varying saturation levels, automatically setting the chosen color's hexadecimal value to the clipboard for convenient use and updating the `SelectedColor` property.
 
-![ColorPaletteControl Preview](./preview.png)
+![ColorPaletteControl Preview](ColorPaletteControl.png)
 
 ## Features
 
