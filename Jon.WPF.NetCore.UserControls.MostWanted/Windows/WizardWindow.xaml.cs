@@ -120,6 +120,42 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Windows
                 Close();
             }
         }
+
+        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                DragMove();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void ContentArea_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                DragMove();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                DragMove();
+            }
+            catch (Exception)
+            {
+
+            }
+        }
     }
 }
 
