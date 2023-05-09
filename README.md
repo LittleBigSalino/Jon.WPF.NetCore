@@ -2,9 +2,18 @@
 
 A WPF .NET Core v6.0 user control library containing customizable and easy-to-use controls for your WPF applications.
 
-![image](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/SamplesMainWindow1.png)
+![image](SamplesMainWindow1.png)
 
-![image](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/SamplesMainWindow2.png)
+![image](SamplesMainWindow2.png)
+
+
+NEW!
+
+![image](PropertyGridExample.png)
+
+NEW!
+
+![image](WizardFirstScreen.png)
 
 ## Controls
 
@@ -15,6 +24,7 @@ A WPF .NET Core v6.0 user control library containing customizable and easy-to-us
 - Color Picker Control
 - Color Palette Control
 - PropertyGrid Control
+- Wizard Control
 
 ## Table of Contents
 
@@ -25,6 +35,7 @@ A WPF .NET Core v6.0 user control library containing customizable and easy-to-us
 - [Color Picker Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/ColorPicker.md)
 - [Color Palette Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/ColorPaletteControl.md)
 - [PropertyGrid Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/PropertyGrid.md)
+- [Wizard Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/WizardWindow.md)
 
 ## Getting Started
 
@@ -68,7 +79,7 @@ A TextBox control with a watermark feature, allowing you to display a placeholde
 
 Refer to the WatermarkTextBox Control Specification for more details, including properties, events, and customization options.
 
-### 5### 5. ColorPicker
+### 5. ColorPicker
 
 A ColorPicker control that allows users to choose a color from a color palette or define custom colors using RGB, HSL, or HEX values. This control provides an intuitive user interface for selecting colors.
 
@@ -85,6 +96,10 @@ Refer to the [Color Palette Control Specification](https://github.com/LittleBigS
 A PropertyGrid user control for displaying and editing object properties in a user-friendly way. It provides auto-generation features, customizable editors, and support for property decorators.
 
 Refer to the PropertyGrid Control Specification for more details, including properties, data binding, and customization options.
+
+### 8. Wizard Control
+A versatile and customizable wizard control to create step-by-step user interfaces in WPF applications. The Most Wanted WPF Wizard control supports various built-in views and allows you to create custom views by implementing the StepBase interface on a UserControl.
+![image](WizardFirstScreen.png)
 
 ## License
 
