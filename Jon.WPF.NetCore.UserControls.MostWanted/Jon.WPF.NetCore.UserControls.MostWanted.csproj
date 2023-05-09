@@ -13,13 +13,13 @@
     <RepositoryType></RepositoryType>
     <PackAsTool>False</PackAsTool>
     <Authors>Jon M. Sales</Authors>
-    <Product>Jon.WPF.NetCore.Controls</Product>
+    <Product>Jon.WPF.Net.Controls</Product>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
-    <AssemblyVersion>1.5</AssemblyVersion>
-    <FileVersion>1.5</FileVersion>
-    <Version>1.5</Version>
-    <TargetFrameworks>net6.0-windows</TargetFrameworks>
+    <AssemblyVersion>1.7</AssemblyVersion>
+    <FileVersion>1.7</FileVersion>
+    <Version>1.7</Version>
+    <TargetFrameworks>net6.0-windows;net7.0-windows</TargetFrameworks>
     <PackageProjectUrl>https://github.com/LittleBigSalino/Jon.WPF.NetCore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/LittleBigSalino/Jon.WPF.NetCore</RepositoryUrl>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <None Remove="README.md" />
+    <None Remove="Windows\RealWizard.png" />
     <None Remove="Windows\WizardGuy.png" />
     <None Remove="WizardGuyTaller.png" />
   </ItemGroup>
@@ -36,6 +37,9 @@
     <Content Include="README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Windows\RealWizard.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Windows\WizardGuy.png">

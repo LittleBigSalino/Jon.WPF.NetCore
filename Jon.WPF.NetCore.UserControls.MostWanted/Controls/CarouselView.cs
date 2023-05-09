@@ -53,108 +53,199 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
             DefaultStyleKeyProperty.OverrideMetadata(typeof(CarouselView), new FrameworkPropertyMetadata(typeof(CarouselView)));
         }
 
-        // Dependency properties declarations
-        // ...
+        //// Dependency properties declarations
+        //public static readonly DependencyProperty ItemsSourceProperty =
+        //    DependencyProperty.Register(nameof(ItemsSource), typeof(IEnumerable), typeof(CarouselView),
+        //        new FrameworkPropertyMetadata(null, OnItemsSourceChanged));
 
-        // Routed events declarations
-        // ...
+        //public static readonly DependencyProperty ItemTemplateProperty =
+        //    DependencyProperty.Register(nameof(ItemTemplate), typeof(DataTemplate), typeof(CarouselView),
+        //        new FrameworkPropertyMetadata(null, OnItemTemplateChanged));
 
-        private ItemsPresenter _itemsPresenter;
-        private ScrollViewer _scrollViewer;
+        //public static readonly DependencyProperty SelectedItemProperty =
+        //    DependencyProperty.Register(nameof(SelectedItem), typeof(object), typeof(CarouselView),
+        //        new FrameworkPropertyMetadata(null, OnSelectedItemChanged));
 
-        public override void OnApplyTemplate()
-        {
-            base.OnApplyTemplate();
+        //public static readonly DependencyProperty SelectedIndexProperty =
+        //    DependencyProperty.Register(nameof(SelectedIndex), typeof(int), typeof(CarouselView),
+        //        new FrameworkPropertyMetadata(0, OnSelectedIndexChanged));
 
-            _itemsPresenter = GetTemplateChild("PART_ItemsPresenter") as ItemsPresenter;
-            _scrollViewer = GetTemplateChild("PART_ScrollViewer") as ScrollViewer;
+        //public static readonly DependencyProperty OrientationProperty =
+        //    DependencyProperty.Register(nameof(Orientation), typeof(Orientation), typeof(CarouselView),
+        //        new FrameworkPropertyMetadata(Orientation.Horizontal, OnOrientationChanged));
 
-            // Subscribe to events
-            // ...
-        }
+        //public static readonly DependencyProperty TransitionDurationProperty =
+        //    DependencyProperty.Register(nameof(TransitionDuration), typeof(TimeSpan), typeof(CarouselView),
+        //        new FrameworkPropertyMetadata(TimeSpan.FromSeconds(0.5), OnTransitionDurationChanged));
 
-        // Property changed callbacks
-        // ...
+        //public static readonly DependencyProperty TransitionEasingFunctionProperty =
+        //    DependencyProperty.Register(nameof(TransitionEasingFunction), typeof(IEasingFunction), typeof(CarouselView),
+        //        new FrameworkPropertyMetadata(new CubicEase { EasingMode = EasingMode.EaseInOut }, OnTransitionEasingFunctionChanged));
 
-        private void OnItemsSourceChanged(IEnumerable oldValue, IEnumerable newValue)
-        {
-            // Handle ItemsSource change
-        }
+        //public static readonly DependencyProperty ItemSpacingProperty =
+        //    DependencyProperty.Register(nameof(ItemSpacing), typeof(double), typeof(CarouselView),
+        //        new FrameworkPropertyMetadata(0d, OnItemSpacingChanged));
 
-        private void OnItemTemplateChanged(DataTemplate oldValue, DataTemplate newValue)
-        {
-            // Handle ItemTemplate change
-        }
+        //public static readonly DependencyProperty ItemScaleFactorProperty =
+        //    DependencyProperty.Register(nameof(ItemScaleFactor), typeof(double), typeof(CarouselView),
+        //        new FrameworkPropertyMetadata(0.9d, OnItemScaleFactorChanged));
 
-        private void OnSelectedItemChanged(object oldValue, object newValue)
-        {
-            // Handle SelectedItem change
-        }
+        //public static readonly DependencyProperty IsCyclicProperty =
+        //    DependencyProperty.Register(nameof(IsCyclic), typeof(bool), typeof(CarouselView),
+        //        new FrameworkPropertyMetadata(false, OnIsCyclicChanged));
 
-        private void OnSelectedIndexChanged(int oldValue, int newValue)
-        {
-            // Handle SelectedIndex change
-        }
+        //// Routed events declarations
+        //public static readonly RoutedEvent SelectionChangedEvent =
+        //    EventManager.RegisterRoutedEvent(nameof(SelectionChanged), RoutingStrategy.Bubble,
+        //        typeof(SelectionChangedEventHandler), typeof(CarouselView));
 
-        private void OnOrientationChanged(Orientation oldValue, Orientation newValue)
-        {
-            // Handle Orientation change
-        }
+        // CLR properties
+        //public IEnumerable ItemsSource
+        //{
+        //    get => (IEnumerable)GetValue(ItemsSourceProperty);
+        //    set => SetValue(ItemsSourceProperty, value);
+        //}
 
-        private void OnTransitionDurationChanged(TimeSpan oldValue, TimeSpan newValue)
-        {
-            // Handle TransitionDuration change
-        }
+        //public DataTemplate ItemTemplate
+        //{
+        //    get => (DataTemplate)GetValue(ItemTemplateProperty);
+        //    set => SetValue(ItemTemplateProperty, value);
+        //}
 
-        private void OnTransitionEasingFunctionChanged(IEasingFunction oldValue, IEasingFunction newValue)
-        {
-            // Handle TransitionEasingFunction change
-        }
+        //public object SelectedItem
+        //{
+        //    get => GetValue(SelectedItemProperty);
+        //    set => SetValue(SelectedItemProperty, value);
+        //}
 
-        private void OnItemSpacingChanged(double oldValue, double newValue)
-        {
-            // Handle ItemSpacing change
-        }
+        //public int SelectedIndex
+        //{
+        //    get => (int)GetValue(SelectedIndexProperty);
+        //    set => SetValue(SelectedIndexProperty, value);
+        //}
 
-        private void OnItemScaleFactorChanged(double oldValue, double newValue)
-        {
-            // Handle ItemScaleFactor change
-        }
+        //public Orientation Orientation
+        //{
+        //    get => (Orientation)GetValue(OrientationProperty);
+        //    set => SetValue(OrientationProperty, value);
+        //}
 
-        private void OnIsCyclicChanged(bool oldValue, bool newValue)
-        {
-            // Handle IsCyclic change
-        }
+        //public TimeSpan TransitionDuration
+        //{
+        //    get => (TimeSpan)GetValue(TransitionDurationProperty);
+        //    set => SetValue(TransitionDurationProperty, value);
+        //}
+        //public IEasingFunction TransitionEasingFunction
+        //{
+        //    get => (IEasingFunction)GetValue(TransitionEasingFunctionProperty);
+        //    set => SetValue(TransitionEasingFunctionProperty, value);
+        //}
+        //public double ItemSpacing
+        //{
+        //    get => (double)GetValue(ItemSpacingProperty);
+        //    set => SetValue(ItemSpacingProperty, value);
+        //}
 
-        // Event handlers
-        // ...
+        //public double ItemScaleFactor
+        //{
+        //    get => (double)GetValue(ItemScaleFactorProperty);
+        //    set => SetValue(ItemScaleFactorProperty, value);
+        //}
 
-        private void ScrollViewer_ScrollChanged(object sender, ScrollChangedEventArgs e)
-        {
-            // Handle scrolling behavior and item transitions
-        }
+        //public bool IsCyclic
+        //{
+        //    get => (bool)GetValue(IsCyclicProperty);
+        //    set => SetValue(IsCyclicProperty, value);
+        //}
 
-        // Helper methods
-        // ...
+        // Property-changed callbacks
+        // Property-changed callbacks
+        //private static void OnBoolPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        //{
+        //    var control = d as CarouselView;
+        //    bool oldValue = (bool)e.OldValue;
+        //    bool newValue = (bool)e.NewValue;
 
-        private void UpdateItemsPresenter()
-        {
-            // Update ItemsPresenter with new data and templates
-        }
+        //    // Your implementation for bool property change here.
+        //    // For example, you might enable or disable a specific feature in the control.
+        //    control.UpdateBoolProperty(newValue);
+        //}
 
-        private void UpdateCarouselLayout()
-        {
-            // Adjust carousel layout based on Orientation, ItemSpacing, and ItemScaleFactor
-        }
+        //private static void OnItemTemplateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        //{
+        //    if (d is CarouselView carouselView)
+        //    {
+        //        carouselView.OnItemTemplateChanged((DataTemplate)e.OldValue, (DataTemplate)e.NewValue);
+        //    }
+        //}
 
-        private void UpdateSelectedItem()
-        {
-            // Calculate the new SelectedItem and SelectedIndex based on the scroll position
-        }
+        //private static void OnSelectedItemChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        //{
+        //    if (d is CarouselView carouselView)
+        //    {
+        //        carouselView.OnSelectedItemChanged(e.OldValue, e.NewValue);
+        //    }
+        //}
 
-        private void UpdateItemTransitions()
-        {
-            // Apply the item transition animations using the TransitionDuration and TransitionEasingFunction properties
-        }
+        //private static void OnSelectedIndexChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        //{
+        //    if (d is CarouselView carouselView)
+        //    {
+        //        carouselView.OnSelectedIndexChanged((int)e.OldValue, (int)e.NewValue);
+        //    }
+        //}
+
+        //private static void OnOrientationChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        //{
+        //    if (d is CarouselView carouselView)
+        //    {
+        //        carouselView.OnOrientationChanged((Orientation)e.OldValue, (Orientation)e.NewValue);
+        //    }
+        //}
+
+        //private static void OnTransitionDurationChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        //{
+        //    if (d is CarouselView carouselView)
+        //    {
+        //        carouselView.OnTransitionDurationChanged((TimeSpan)e.OldValue, (TimeSpan)e.NewValue);
+        //    }
+        //}
+
+        //private static void OnTransitionEasingFunctionChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        //{
+        //    if (d is CarouselView carouselView)
+        //    {
+        //        carouselView.OnTransitionEasingFunctionChanged((IEasingFunction)e.OldValue, (IEasingFunction)e.NewValue);
+        //    }
+        //}
+
+        //private static void OnItemSpacingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        //{
+        //    if (d is CarouselView carouselView)
+        //    {
+        //        carouselView.OnItemSpacingChanged((double)e.OldValue, (double)e.NewValue);
+        //    }
+        //}
+
+        //private static void OnItemScaleFactorChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        //{
+        //    if (d is CarouselView carouselView)
+        //    {
+        //        carouselView.OnItemScaleFactorChanged((double)e.OldValue, (double)e.NewValue);
+        //    }
+        //}
+
+        //private static void OnIsCyclicChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        //{
+        //    if (d is CarouselView carouselView)
+        //    {
+        //        carouselView.OnIsCyclicChanged((bool)e.OldValue, (bool)e.NewValue);
+        //    }
+        //}
+
+
+
+        // Other methods and properties remain the same
+
     }
 }
