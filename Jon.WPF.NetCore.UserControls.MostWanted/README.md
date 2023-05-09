@@ -1,4 +1,6 @@
-﻿# Jon.WPF.NetCore.Controls
+﻿Here's an updated version of the `README.md` file with the wizard control added to the list of controls:
+
+# Jon.WPF.NetCore.Controls
 
 A WPF .NET Core v6.0 user control library containing customizable and easy-to-use controls for your WPF applications.
 
@@ -6,10 +8,11 @@ A WPF .NET Core v6.0 user control library containing customizable and easy-to-us
 
 ![image](SamplesMainWindow2.png)
 
-
 NEW!
 
 ![image](PropertyGridExample.png)
+
+![image](MostWantedWizardExample.png)
 
 ## Controls
 
@@ -20,6 +23,7 @@ NEW!
 - Color Picker Control
 - Color Palette Control
 - PropertyGrid Control
+- Most Wanted WPF Wizard Control
 
 ## Table of Contents
 
@@ -30,6 +34,9 @@ NEW!
 - [Color Picker Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/ColorPicker.md)
 - [Color Palette Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/ColorPaletteControl.md)
 - [PropertyGrid Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/PropertyGrid.md)
+- [Wizard Control](WizardFirstScreen.png)
+
+<!-- Add the rest of the content and adjust the links accordingly -->
 
 ## Getting Started
 
@@ -48,6 +55,8 @@ To use the controls in your WPF application, follow these steps:
 4. Add the control to your XAML layout.
 
 ## Controls
+
+
 
 ### 1. ToggleSwitch
 
@@ -90,6 +99,15 @@ Refer to the [Color Palette Control Specification](https://github.com/LittleBigS
 A PropertyGrid user control for displaying and editing object properties in a user-friendly way. It provides auto-generation features, customizable editors, and support for property decorators.
 
 Refer to the PropertyGrid Control Specification for more details, including properties, data binding, and customization options.
+
+### 8. Most Wanted WPF Wizard Control
+
+A versatile and customizable wizard control to create step-by-step user interfaces in WPF applications. The Most Wanted WPF Wizard control supports various built-in views and allows you to create custom views by implementing the `StepBase` interface on a UserControl.
+
+![WizardWindow Control](path/to/wizard-control-image.png)
+
+Refer to the [Most Wanted WPF Wizard Control Specification](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/MostWantedWizard.md) for more details, including properties, data binding, and customization options.
+
 
 ## License
 

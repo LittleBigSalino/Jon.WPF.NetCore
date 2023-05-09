@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Linq;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -26,7 +27,12 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
         public RatingControl()
         {
             InitializeComponent();
+            Style RatingStarStyle = TryFindResource("RatingStarStyle") as Style;
+            var test = RatingStarStyle.Setters[2];
+
         }
+
+
 
         public double RatingValue
         {
