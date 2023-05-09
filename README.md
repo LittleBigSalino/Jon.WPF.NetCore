@@ -9,11 +9,11 @@ A WPF .NET Core v6.0 user control library containing customizable and easy-to-us
 
 NEW!
 
-![image](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/WizardFirstScreen.png)
+![image](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/PropertyGridExample.png)
 
 NEW!
 
-![image](WizardFirstScreen.png)
+![image](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/WizardFirstScreen.png)
 
 ## Controls
 
