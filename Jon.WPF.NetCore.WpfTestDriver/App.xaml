@@ -5,7 +5,7 @@
     xmlns:controls="clr-namespace:Jon.WPF.NetCore.UserControls.MostWanted.Controls;assembly=Jon.WPF.NetCore.UserControls.MostWanted"
     xmlns:local="clr-namespace:Jon.WPF.NetCore.WpfTestDriver"
     xmlns:ui="http://schemas.modernwpf.com/2019"
-    StartupUri="MainWindow.xaml">
+    StartupUri="StartWizardWindow.xaml">
     <Application.Resources>
 
         <controls:SwitchForegroundConverter x:Key="SwitchForegroundConverter" />

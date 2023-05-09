@@ -6,6 +6,11 @@ A WPF .NET Core v6.0 user control library containing customizable and easy-to-us
 
 ![image](SamplesMainWindow2.png)
 
+
+NEW!
+
+![image](PropertyGridExample.png)
+
 ## Controls
 
 - ToggleSwitch Control
@@ -68,7 +73,7 @@ A TextBox control with a watermark feature, allowing you to display a placeholde
 
 Refer to the WatermarkTextBox Control Specification for more details, including properties, events, and customization options.
 
-### 5### 5. ColorPicker
+### 5. ColorPicker
 
 A ColorPicker control that allows users to choose a color from a color palette or define custom colors using RGB, HSL, or HEX values. This control provides an intuitive user interface for selecting colors.
 
