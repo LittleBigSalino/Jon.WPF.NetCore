@@ -2,18 +2,18 @@
 
 A WPF .NET v6.0/v7.0 user control library containing customizable and easy-to-use controls for your WPF applications.
 
-![image](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/SamplesMainWindow1.png)
+![image](SamplesMainWindow1.png)
 
-![image](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/SamplesMainWindow2.png)
+![image](SamplesMainWindow2.png)
 
-
-NEW!
-
-![image](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/PropertyGridExample.png)
 
 NEW!
 
-![image](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/WizardFirstScreen.png)
+![image](PropertyGridExample.png)
+
+NEW!
+
+![image](WizardFirstScreen.png)
 
 ## Controls
 
@@ -28,14 +28,14 @@ NEW!
 
 ## Table of Contents
 
-- [ToggleSwitch Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/ToggleSwitch.md)
-- [Time Picker Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/TimePicker.md)
-- [Rating Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/RatingControl.md)
-- [Watermark TextBox Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/WatermarkTextbox.md)
-- [Color Picker Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/ColorPicker.md)
-- [Color Palette Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/ColorPaletteControl.md)
-- [PropertyGrid Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/PropertyGrid.md)
-- [Wizard Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/WizardWindow.md)
+- [ToggleSwitch Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/Docs/ToggleSwitch.md)
+- [Time Picker Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/Docs/TimePicker.md)
+- [Rating Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/Docs/RatingControl.md)
+- [Watermark TextBox Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/Docs/WatermarkTextbox.md)
+- [Color Picker Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/Docs/ColorPicker.md)
+- [Color Palette Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/Docs/ColorPaletteControl.md)
+- [PropertyGrid Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/Docs/PropertyGrid.md)
+- [Wizard Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/Docs/WizardWindow.md)
 
 ## Getting Started
 
@@ -99,7 +99,7 @@ Refer to the PropertyGrid Control Specification for more details, including prop
 
 ### 8. Wizard Control
 A versatile and customizable wizard control to create step-by-step user interfaces in WPF applications. The Most Wanted WPF Wizard control supports various built-in views and allows you to create custom views by implementing the StepBase interface on a UserControl.
-![image](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/WizardFirstScreen.png)
+![image](WizardFirstScreen.png)
 
 ## License
 
