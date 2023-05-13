@@ -99,7 +99,7 @@ Refer to the PropertyGrid Control Specification for more details, including prop
 
 ### 8. Wizard Control
 A versatile and customizable wizard control to create step-by-step user interfaces in WPF applications. The Most Wanted WPF Wizard control supports various built-in views and allows you to create custom views by implementing the StepBase interface on a UserControl.
-![image](WizardFirstScreen.png)
+![image](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/WizardFirstScreen.png)
 
 ## License
 
