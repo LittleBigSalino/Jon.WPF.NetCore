@@ -16,17 +16,17 @@
     <Product>Jon.WPF.Net.Controls</Product>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <GenerateDocumentationFile>False</GenerateDocumentationFile>
-    <AssemblyVersion>1.7</AssemblyVersion>
-    <FileVersion>1.7</FileVersion>
-    <Version>1.7</Version>
+    <AssemblyVersion>1.8</AssemblyVersion>
+    <FileVersion>1.8</FileVersion>
+    <Version>1.8</Version>
     <TargetFrameworks>net6.0-windows;net7.0-windows</TargetFrameworks>
     <PackageProjectUrl>https://github.com/LittleBigSalino/Jon.WPF.NetCore</PackageProjectUrl>
     <RepositoryUrl>https://github.com/LittleBigSalino/Jon.WPF.NetCore</RepositoryUrl>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <SignAssembly>False</SignAssembly>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="README.md" />
     <None Remove="WizardGuyTaller.png" />
   </ItemGroup>
 
@@ -47,10 +47,6 @@
 
   <ItemGroup>
     <None Include="..\..\..\..\..\Users\jon.localadmin\Desktop\graphics\OIG.v.jpg" Link="Images\OIG.v.jpg">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
@@ -75,6 +71,13 @@
     <Compile Update="Controls\TimePicker.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

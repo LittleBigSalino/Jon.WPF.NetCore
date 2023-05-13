@@ -1,11 +1,4 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:Jon.WPF.NetCore.UserControls.MostWanted.CustomControls">
-
-    <Style BasedOn="{StaticResource {x:Type Button}}" TargetType="{x:Type local:MyCustomControl}">
-        <Setter Property="Background" Value="LightSalmon" />
-        <Setter Property="Foreground" Value="Blue" />
-    </Style>
-
-</ResourceDictionary>
+    xmlns:local="clr-namespace:Jon.WPF.NetCore.UserControls.MostWanted.CustomControls" />

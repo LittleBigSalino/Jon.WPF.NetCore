@@ -29,11 +29,7 @@
                     Text="{Binding IsOn, ElementName=toggleSwitch2}" />
             </StackPanel>
 
-            <cc:MyCustomControl
-                Width="100"
-                Height="100"
-                Click="MyCustomControl_Click"
-                Content="Click Me" />
+
         </StackPanel>
     </Grid>
 </Window>
