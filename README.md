@@ -34,7 +34,7 @@ NEW!
 - [Watermark TextBox Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/Docs/WatermarkTextbox.md)
 - [Color Picker Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/Docs/ColorPicker.md)
 - [Color Palette Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/Docs/ColorPaletteControl.md)
-- [PropertyGrid Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/Docs/PropertyGrid.md)
+- [PropertyGrid Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/Docs/PropertyGridNETCORE.md)
 - [Wizard Control](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/Docs/WizardWindow.md)
 
 ## Getting Started
