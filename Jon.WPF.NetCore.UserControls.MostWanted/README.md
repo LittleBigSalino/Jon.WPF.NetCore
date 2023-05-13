@@ -9,7 +9,7 @@ A WPF .NET v6.0/v7.0 user control library containing customizable and easy-to-us
 
 NEW!
 
-![image](PropertyGridExample.png)
+![image](https://github.com/LittleBigSalino/Jon.WPF.NetCore/blob/master/Jon.WPF.NetCore.UserControls.MostWanted/PropertyGridExample.png)
 
 NEW!
 
