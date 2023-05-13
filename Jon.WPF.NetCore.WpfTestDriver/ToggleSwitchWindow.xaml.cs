@@ -23,5 +23,10 @@ namespace Jon.WPF.NetCore.WpfTestDriver
         {
             InitializeComponent();
         }
+
+        private void MyCustomControl_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Click", "Success");
+        }
     }
 }

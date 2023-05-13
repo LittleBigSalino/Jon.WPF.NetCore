@@ -5,18 +5,28 @@
     xmlns:controls="clr-namespace:Jon.WPF.NetCore.UserControls.MostWanted.Controls;assembly=Jon.WPF.NetCore.UserControls.MostWanted"
     xmlns:local="clr-namespace:Jon.WPF.NetCore.WpfTestDriver"
     xmlns:ui="http://schemas.modernwpf.com/2019"
-    StartupUri="StartWizardWindow.xaml">
+    StartupUri="PropertyGridExampleWindow.xaml">
     <Application.Resources>
 
-        <controls:SwitchForegroundConverter x:Key="SwitchForegroundConverter" />
-        <ResourceDictionary x:Key="Themers">
+
+
+        <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ui:ThemeResources />
-                <ui:XamlControlsResources />
-                <!--  Other merged dictionaries here  -->
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ui:ThemeResources />
+                        <ui:XamlControlsResources />
+                        <!--  Other merged dictionaries here  -->
+                    </ResourceDictionary.MergedDictionaries>
+                    <!--  Other app resources here  -->
+
+                </ResourceDictionary>
+                <ResourceDictionary Source="Generic.xaml" />
+
             </ResourceDictionary.MergedDictionaries>
-            <!--  Other app resources here  -->
+            <controls:SwitchForegroundConverter x:Key="SwitchForegroundConverter" />
         </ResourceDictionary>
+
     </Application.Resources>
 
 </Application>
