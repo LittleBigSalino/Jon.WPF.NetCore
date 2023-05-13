@@ -1,19 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Net;
-using System.Security.Cryptography.Pkcs;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Jon.WPF.NetCore.WpfTestDriver
 {
@@ -79,20 +67,20 @@ namespace Jon.WPF.NetCore.WpfTestDriver
         public List<ContactInfo> ContactInfoList { get; set; }
     }";
 
-            Address address = new Address()
+            Address address = new()
             {
                 Street = "123 Main St",
                 Street2 = "Apt 2",
                 City = "Tucson",
                 State = "AZ",
-                Postal = "12345"           
+                Postal = "12345"
             };
-            Person person = new Person()
+            Person person = new()
             {
                 First = "Jon",
                 Last = "Sales",
                 Middle = "M",
-                DOB = new DateTime(1978,5,7) ,
+                DOB = new DateTime(1978, 5, 7),
                 Address = address
             };
             PropertyGridMain.SelectedObject = person;
@@ -105,17 +93,17 @@ namespace Jon.WPF.NetCore.WpfTestDriver
         [DisplayName("First Name")]
         [Description("The person's first name.")]
         [Category("Personal Information")]
-        public string First { get; set; }
+        public string? First { get; set; }
 
         [DisplayName("Middle Name")]
         [Description("The person's middle name (if applicable).")]
         [Category("Personal Information")]
-        public string Middle { get; set; }
+        public string? Middle { get; set; }
 
         [DisplayName("Last Name")]
         [Description("The person's last name.")]
         [Category("Personal Information")]
-        public string Last { get; set; }
+        public string? Last { get; set; }
 
         [DisplayName("Date of Birth")]
         [Description("The person's date of birth.")]
@@ -125,7 +113,7 @@ namespace Jon.WPF.NetCore.WpfTestDriver
         [DisplayName("Address")]
         [Description("The person's physical address.")]
         [Category("Address Info")]
-        public Address Address { get; set; }
+        public Address? Address { get; set; }
 
         [DisplayName("Street Address 1")]
         [Description("The person's physical address.")]
@@ -150,7 +138,7 @@ namespace Jon.WPF.NetCore.WpfTestDriver
         [DisplayName("Contact Information")]
         [Description("A list of the person's contact information.")]
         [Category("Contact Information")]
-        public List<ContactInfo> ContactInfoList { get; set; }
+        public List<ContactInfo>? ContactInfoList { get; set; }
     }
 
     public class Address
@@ -158,27 +146,27 @@ namespace Jon.WPF.NetCore.WpfTestDriver
         [DisplayName("Street Address")]
         [Description("The first line of the street address.")]
         [Category("Address")]
-        public string Street { get; set; }
+        public string? Street { get; set; }
 
         [DisplayName("Street Address 2")]
         [Description("The second line of the street address (if applicable).")]
         [Category("Address")]
-        public string Street2 { get; set; }
+        public string? Street2 { get; set; }
 
         [DisplayName("City")]
         [Description("The name of the city.")]
         [Category("Address")]
-        public string City { get; set; }
+        public string? City { get; set; }
 
         [DisplayName("State")]
         [Description("The name of the state or province.")]
         [Category("Address")]
-        public string State { get; set; }
+        public string? State { get; set; }
 
         [DisplayName("Postal Code")]
         [Description("The postal code or ZIP code.")]
         [Category("Address")]
-        public string Postal { get; set; }
+        public string? Postal { get; set; }
 
         public override string ToString()
         {
@@ -196,7 +184,7 @@ namespace Jon.WPF.NetCore.WpfTestDriver
         [DisplayName("Contact Value")]
         [Description("The value of the contact information.")]
         [Category("Contact Information")]
-        public string Value { get; set; }
+        public string? Value { get; set; }
     }
 
     public enum ContactInfoType

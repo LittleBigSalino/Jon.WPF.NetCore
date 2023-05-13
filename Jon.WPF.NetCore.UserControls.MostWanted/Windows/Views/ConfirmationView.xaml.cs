@@ -4,7 +4,6 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using System.Windows;
 
 namespace Jon.WPF.NetCore.UserControls.MostWanted.Windows.Views
 {
@@ -13,7 +12,6 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Windows.Views
     /// </summary>
     public partial class ConfirmationView : StepBase
     {
-        private bool _isValidated;
         public bool IsValidated
         {
             get => _isValidated;
@@ -23,8 +21,6 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Windows.Views
                 OnPropertyChanged();
             }
         }
-
-        private Dictionary<string, object> _selectedOptions;
         public Dictionary<string, object> SelectedOptions
         {
             get => _selectedOptions;
@@ -33,22 +29,13 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Windows.Views
                 _selectedOptions = value;
                 OnPropertyChanged();
                 SelectedOptionKvps.Clear();
-                foreach(string key in _selectedOptions.Keys)
+                foreach (string key in _selectedOptions.Keys)
                 {
                     SelectedOptionKvps.Add(new KeyValuePair<string, object>(key, _selectedOptions[key]));
                 }
             }
         }
-
         public ObservableCollection<KeyValuePair<string, object>> SelectedOptionKvps { get; set; }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
         public ConfirmationView(string summaryText)
         {
             InitializeComponent();
@@ -57,7 +44,14 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Windows.Views
             SummaryTextBlock.Text = summaryText;
             DataContext = this;
         }
+        private bool _isValidated;
+        private Dictionary<string, object> _selectedOptions;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
+        private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         public int GetNextStepIndex()
         {
             // Assuming the next step is always the next index, change this as needed

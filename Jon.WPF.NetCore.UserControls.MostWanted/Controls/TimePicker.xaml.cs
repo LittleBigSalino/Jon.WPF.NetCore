@@ -32,7 +32,7 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
             get => (bool)GetValue(Is24HourFormatProperty);
             set => SetValue(Is24HourFormatProperty, value);
         }
-        public List<string> AmPmOptions
+        public List<string>? AmPmOptions
         {
             get => _amPmOptions;
         }
@@ -47,7 +47,7 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
                 UpdateSelectedTime();
             }
         }
-        public List<string> Hours
+        public List<string>? Hours
         {
             get => _hours;
             set
@@ -56,7 +56,7 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
                 OnPropertyChanged();
             }
         }
-        public List<string> Minutes
+        public List<string>? Minutes
         {
             get => _minutes;
 
@@ -207,4 +207,3 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
         }
     }
 }
-

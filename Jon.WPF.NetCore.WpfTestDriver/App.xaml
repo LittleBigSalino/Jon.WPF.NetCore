@@ -3,26 +3,11 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="clr-namespace:Jon.WPF.NetCore.UserControls.MostWanted.Controls;assembly=Jon.WPF.NetCore.UserControls.MostWanted"
-    xmlns:local="clr-namespace:Jon.WPF.NetCore.WpfTestDriver"
-    xmlns:ui="http://schemas.modernwpf.com/2019"
-    StartupUri="PropertyGridExampleWindow.xaml">
+    StartupUri="MainWindow.xaml">
     <Application.Resources>
-
-
-
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary>
-                    <ResourceDictionary.MergedDictionaries>
-                        <ui:ThemeResources />
-                        <ui:XamlControlsResources />
-                        <!--  Other merged dictionaries here  -->
-                    </ResourceDictionary.MergedDictionaries>
-                    <!--  Other app resources here  -->
-
-                </ResourceDictionary>
                 <ResourceDictionary Source="Generic.xaml" />
-
             </ResourceDictionary.MergedDictionaries>
             <controls:SwitchForegroundConverter x:Key="SwitchForegroundConverter" />
         </ResourceDictionary>

@@ -5,11 +5,9 @@
     xmlns:controls="clr-namespace:Jon.WPF.NetCore.UserControls.MostWanted.Controls;assembly=Jon.WPF.NetCore.UserControls.MostWanted"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:ui="http://schemas.modernwpf.com/2019"
-    Title="MainWindow"
-    Width="760"
+    Title="Control Sample Driver"
+    Width="800"
     Height="733"
-    ui:WindowHelper.UseModernWindowStyle="True"
     SizeToContent="Height"
     mc:Ignorable="d">
     <Grid>

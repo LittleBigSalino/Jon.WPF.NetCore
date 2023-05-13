@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
 {
@@ -20,6 +9,31 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
     /// </summary>
     public partial class WatermarkTextBox : UserControl
     {
+        public string WatermarkText
+        {
+            get => (string)GetValue(WatermarkTextProperty);
+            set => SetValue(WatermarkTextProperty, value);
+        }
+        public Brush WatermarkColor
+        {
+            get => (Brush)GetValue(WatermarkColorProperty);
+            set => SetValue(WatermarkColorProperty, value);
+        }
+        public Brush ForegroundColor
+        {
+            get => (Brush)GetValue(ForegroundColorProperty);
+            set => SetValue(ForegroundColorProperty, value);
+        }
+        public Brush BackgroundColor
+        {
+            get => (Brush)GetValue(BackgroundColorProperty);
+            set => SetValue(BackgroundColorProperty, value);
+        }
+        public string Text
+        {
+            get => (string)GetValue(TextProperty);
+            set => SetValue(TextProperty, value);
+        }
         public WatermarkTextBox()
         {
             InitializeComponent();
@@ -41,37 +55,6 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
 
         public static readonly DependencyProperty TextProperty =
             DependencyProperty.Register("Text", typeof(string), typeof(WatermarkTextBox), new FrameworkPropertyMetadata(string.Empty, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
-
-        public string WatermarkText
-        {
-            get => (string)GetValue(WatermarkTextProperty);
-            set => SetValue(WatermarkTextProperty, value);
-        }
-
-        public Brush WatermarkColor
-        {
-            get => (Brush)GetValue(WatermarkColorProperty);
-            set => SetValue(WatermarkColorProperty, value);
-        }
-
-        public Brush ForegroundColor
-        {
-            get => (Brush)GetValue(ForegroundColorProperty);
-            set => SetValue(ForegroundColorProperty, value);
-        }
-
-        public Brush BackgroundColor
-        {
-            get => (Brush)GetValue(BackgroundColorProperty);
-            set => SetValue(BackgroundColorProperty, value);
-        }
-
-        public string Text
-        {
-            get => (string)GetValue(TextProperty);
-            set => SetValue(TextProperty, value);
-        }
-
         private void UpdateWatermark()
         {
             WatermarkTextBlock.Visibility = string.IsNullOrEmpty(Text) ? Visibility.Visible : Visibility.Collapsed;

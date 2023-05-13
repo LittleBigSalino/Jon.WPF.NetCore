@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,6 +25,21 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls.PropertyGrid
             get => GetValue(SelectedObjectProperty);
             set => SetValue(SelectedObjectProperty, value);
         }
+        public Brush CategoryColor
+        {
+            get { return (Brush)GetValue(CategoryColorProperty); }
+            set { SetValue(CategoryColorProperty, value); }
+        }
+        public Brush CategoryForeground
+        {
+            get { return (Brush)GetValue(CategoryForegroundProperty); }
+            set { SetValue(CategoryForegroundProperty, value); }
+        }
+        public Brush CategoryBackground
+        {
+            get { return (Brush)GetValue(CategoryBackgroundProperty); }
+            set { SetValue(CategoryBackgroundProperty, value); }
+        }
         public PropertyGridControl()
         {
             InitializeComponent();
@@ -38,37 +52,17 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls.PropertyGrid
         DependencyProperty.Register("CategorizedView", typeof(bool), typeof(PropertyGridControl), new PropertyMetadata(true, OnCategorizedViewChanged));
         public static readonly DependencyProperty SelectedObjectProperty =
         DependencyProperty.Register("SelectedObject", typeof(object), typeof(PropertyGridControl), new PropertyMetadata(null, OnSelectedObjectChanged));
+        public static readonly DependencyProperty CategoryColorProperty =
+            DependencyProperty.Register(nameof(CategoryColor), typeof(Brush), typeof(PropertyGridControl), new PropertyMetadata(new SolidColorBrush(Color.FromArgb(0xFF, 0x4E, 0x94, 0xDB))));
+        public static readonly DependencyProperty CategoryForegroundProperty =
+            DependencyProperty.Register(nameof(CategoryForeground), typeof(Brush), typeof(PropertyGridControl), new PropertyMetadata(Brushes.White));
+        public static readonly DependencyProperty CategoryBackgroundProperty =
+        DependencyProperty.Register(nameof(CategoryBackground), typeof(Brush), typeof(PropertyGridControl), new PropertyMetadata(Brushes.White));
         private static void OnCategorizedViewChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var control = d as PropertyGridControl;
             control?.UpdateGroupDescriptions();
         }
-        public Brush CategoryColor
-        {
-            get { return (Brush)GetValue(CategoryColorProperty); }
-            set { SetValue(CategoryColorProperty, value); }
-        }
-        public static readonly DependencyProperty CategoryColorProperty =
-            DependencyProperty.Register(nameof(CategoryColor), typeof(Brush), typeof(PropertyGridControl), new PropertyMetadata(new SolidColorBrush(Color.FromArgb(0xFF, 0x4E, 0x94, 0xDB))));
-
-        public Brush CategoryForeground
-        {
-            get { return (Brush)GetValue(CategoryForegroundProperty); }
-            set { SetValue(CategoryForegroundProperty, value); }
-        }
-        public static readonly DependencyProperty CategoryForegroundProperty =
-            DependencyProperty.Register(nameof(CategoryForeground), typeof(Brush), typeof(PropertyGridControl), new PropertyMetadata(Brushes.White));
-
-
-        public Brush CategoryBackground
-        {
-            get { return (Brush)GetValue(CategoryBackgroundProperty); }
-            set { SetValue(CategoryBackgroundProperty, value); }
-        }
-
-        public static readonly DependencyProperty CategoryBackgroundProperty =
-        DependencyProperty.Register(nameof(CategoryBackground), typeof(Brush), typeof(PropertyGridControl), new PropertyMetadata(Brushes.White));
-
         private static void OnSelectedObjectChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var control = d as PropertyGridControl;
@@ -118,10 +112,10 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls.PropertyGrid
         {
             var button = sender as Button;
             var propertyEntry = button.DataContext as PropertyEntry;
-            List<object> passer = new List<object>();
+            List<object> passer = new();
             if (propertyEntry?.Value is IEnumerable collection)
             {
-                foreach(var item in collection)
+                foreach (var item in collection)
                 {
                     passer.Add(item);
                 }
@@ -129,7 +123,7 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls.PropertyGrid
                 collectionWindow.ShowDialog();
             }
         }
-    
+
         private void PropertyDataGrid_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
         {
             var dataGrid = sender as DataGrid;
@@ -157,10 +151,7 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls.PropertyGrid
                 TextBlockCategorized.Text = "Alphabetized";
             }
 
-
         }
     }
-
-   
 
 }

@@ -27,8 +27,6 @@
 
   <ItemGroup>
     <None Remove="README.md" />
-    <None Remove="Windows\RealWizard.png" />
-    <None Remove="Windows\WizardGuy.png" />
     <None Remove="WizardGuyTaller.png" />
   </ItemGroup>
 
@@ -39,27 +37,12 @@
       <PackagePath>\</PackagePath>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Windows\RealWizard.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Windows\WizardGuy.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Windows\WizardGuyTaller.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\WizardGuyTaller.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controls\Markdown\" />
-    <Folder Include="Controls\TimePicker\" />
-    <Folder Include="Controls\ToggleSwitch\" />
-    <Folder Include="Helpers\" />
-    <Folder Include="Resources\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
 
   <ItemGroup>

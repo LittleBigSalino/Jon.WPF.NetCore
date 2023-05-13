@@ -13,31 +13,87 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
     /// </summary>
     public partial class ColorPicker : UserControl
     {
-        public event EventHandler? ColorChanged;
-
-
-        public static readonly DependencyProperty SelectedColorProperty =
-            DependencyProperty.Register(nameof(SelectedColor), typeof(Color), typeof(ColorPicker), new PropertyMetadata(Colors.Black, new PropertyChangedCallback(OnSelectedColorChanged)));
-
-
-
         public Color SelectedColor
         {
             get { return (Color)GetValue(SelectedColorProperty); }
             set { SetValue(SelectedColorProperty, value); }
         }
-
         public ColorPicker()
         {
-            InitializeComponent();            
+            InitializeComponent();
             BindTextBoxToSlider(HueTextBox, HueSlider);
             BindTextBoxToSlider(SaturationTextBox, SaturationSlider);
             BindTextBoxToSlider(ValueTextBox, ValueSlider);
             BindTextBoxToSlider(OpacityTextBox, OpacitySlider);
             UpdateSlidersAndTextBox(SelectedColor);
         }
+        public static readonly DependencyProperty SelectedColorProperty =
+            DependencyProperty.Register(nameof(SelectedColor), typeof(Color), typeof(ColorPicker), new PropertyMetadata(Colors.Black, new PropertyChangedCallback(OnSelectedColorChanged)));
+        public event EventHandler? ColorChanged;
+        private static void OnSelectedColorChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
+        {
+            var colorPicker = (ColorPicker)sender;
+            colorPicker.OnSelectedColorChanged(e);
+        }
+        private static bool IsValidHexCode(string hexCode)
+        {
+            return hexCode.Length == 7 && hexCode[0] == '#' && int.TryParse(hexCode.AsSpan(1), NumberStyles.HexNumber, CultureInfo.InvariantCulture, out _);
 
+        }
+        private static Color ColorFromHsv(double hue, double saturation, double value)
+        {
+            int hi = Convert.ToInt32(Math.Floor(hue / 60)) % 6;
+            double f = hue / 60 - Math.Floor(hue / 60);
 
+            value = value * 255;
+            byte v = Convert.ToByte(value);
+            byte p = Convert.ToByte(value * (1 - saturation));
+            byte q = Convert.ToByte(value * (1 - f * saturation));
+            byte t = Convert.ToByte(value * (1 - (1 - f) * saturation));
+
+            return hi switch
+            {
+                0 => Color.FromArgb(255, v, t, p),
+                1 => Color.FromArgb(255, q, v, p),
+                2 => Color.FromArgb(255, p, v, t),
+                3 => Color.FromArgb(255, p, q, v),
+                4 => Color.FromArgb(255, t, p, v),
+                _ => Color.FromArgb(255, v, p, q),
+            };
+        }
+        private static (double hue, double saturation, double value) ColorToHsv(Color color)
+        {
+            double r = color.R / 255.0;
+            double g = color.G / 255.0;
+            double b = color.B / 255.0;
+
+            double max = Math.Max(r, Math.Max(g, b));
+            double min = Math.Min(r, Math.Min(g, b));
+            double chroma = max - min;
+            double hue = 0.0;
+            double saturation = chroma == 0 ? 0 : chroma / max;
+            double value = max;
+
+            if (chroma != 0)
+            {
+                if (max == r)
+                {
+                    hue = (g - b) / chroma + (g < b ? 6 : 0);
+                }
+                else if (max == g)
+                {
+                    hue = (b - r) / chroma + 2;
+                }
+                else
+                {
+                    hue = (r - g) / chroma + 4;
+                }
+
+                hue *= 60;
+            }
+
+            return (hue, saturation, value);
+        }
         private void HexCodeTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (HexCodeTextBox.Text.Length == 6)
@@ -55,10 +111,9 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
             }
         }
 
-
         private void BindTextBoxToSlider(TextBox textBox, Slider slider)
         {
-            Binding binding = new Binding("Value")
+            Binding binding = new("Value")
             {
                 Source = slider,
                 UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged,
@@ -99,22 +154,6 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
             UpdateTextBox(newColor);
             SelectedColor = newColor;
         }
-
-
-        private static void OnSelectedColorChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
-        {
-            var colorPicker = (ColorPicker)sender;
-            colorPicker.OnSelectedColorChanged(e);
-        }
-
-
-        protected virtual void OnSelectedColorChanged(DependencyPropertyChangedEventArgs e)
-        {
-            ColorChanged?.Invoke(this, EventArgs.Empty);
-            UpdateColorPreview();
-            UpdateSlidersAndTextBox(SelectedColor);
-        }
-
         private void UpdateColorPreview()
         {
             ColorPreview.Fill = new SolidColorBrush(SelectedColor);
@@ -129,8 +168,6 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
         }
             };
         }
-
-
         private void UpdateSlidersAndTextBox(Color color)
         {
             var (hue, saturation, value) = ColorToHsv(color);
@@ -140,21 +177,12 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
             OpacitySlider.Value = color.A / 255.0;
             HexCodeTextBox.Text = color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2");
         }
-
-
         private void UpdateTextBox(Color color)
         {
             HexCodeTextBox.TextChanged -= HexCodeTextBox_TextChanged;
             HexCodeTextBox.Text = color.ToString();
             HexCodeTextBox.TextChanged += HexCodeTextBox_TextChanged;
         }
-
-        private static bool IsValidHexCode(string hexCode)
-        {
-            return hexCode.Length == 7 && hexCode[0] == '#' && int.TryParse(hexCode.Substring(1), NumberStyles.HexNumber, CultureInfo.InvariantCulture, out _);
-
-        }
-
         private void OpacitySlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             byte newAlpha = Convert.ToByte(e.NewValue * 255);
@@ -162,8 +190,6 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
             currentColor.A = newAlpha;
             SelectedColor = currentColor;
         }
-
-
         private Color GetColorFromPalette(Point position)
         {
             // Implement your logic to calculate the color based on the position
@@ -171,61 +197,11 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
             // your color palette.
             throw new NotImplementedException("Please implement the GetColorFromPalette method.");
         }
-
-        private static Color ColorFromHsv(double hue, double saturation, double value)
+        protected virtual void OnSelectedColorChanged(DependencyPropertyChangedEventArgs e)
         {
-            int hi = Convert.ToInt32(Math.Floor(hue / 60)) % 6;
-            double f = hue / 60 - Math.Floor(hue / 60);
-
-            value = value * 255;
-            byte v = Convert.ToByte(value);
-            byte p = Convert.ToByte(value * (1 - saturation));
-            byte q = Convert.ToByte(value * (1 - f * saturation));
-            byte t = Convert.ToByte(value * (1 - (1 - f) * saturation));
-
-            return hi switch
-            {
-                0 => Color.FromArgb(255, v, t, p),
-                1 => Color.FromArgb(255, q, v, p),
-                2 => Color.FromArgb(255, p, v, t),
-                3 => Color.FromArgb(255, p, q, v),
-                4 => Color.FromArgb(255, t, p, v),
-                _ => Color.FromArgb(255, v, p, q),
-            };
-        }
-
-        private static (double hue, double saturation, double value) ColorToHsv(Color color)
-        {
-            double r = color.R / 255.0;
-            double g = color.G / 255.0;
-            double b = color.B / 255.0;
-
-            double max = Math.Max(r, Math.Max(g, b));
-            double min = Math.Min(r, Math.Min(g, b));
-            double chroma = max - min;
-            double hue = 0.0;
-            double saturation = chroma == 0 ? 0 : chroma / max;
-            double value = max;
-
-            if (chroma != 0)
-            {
-                if (max == r)
-                {
-                    hue = (g - b) / chroma + (g < b ? 6 : 0);
-                }
-                else if (max == g)
-                {
-                    hue = (b - r) / chroma + 2;
-                }
-                else
-                {
-                    hue = (r - g) / chroma + 4;
-                }
-
-                hue *= 60;
-            }
-
-            return (hue, saturation, value);
+            ColorChanged?.Invoke(this, EventArgs.Empty);
+            UpdateColorPreview();
+            UpdateSlidersAndTextBox(SelectedColor);
         }
     }
 }

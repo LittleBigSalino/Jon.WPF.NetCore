@@ -1,20 +1,9 @@
-﻿using Rebus.Pipeline;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Jon.WPF.NetCore.UserControls.MostWanted.Windows.Views
 {
@@ -23,8 +12,6 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Windows.Views
     /// </summary>
     public partial class GatherValuesView : StepBase
     {
-
-        private bool _isValidated;
         public bool IsValidated
         {
             get => _isValidated;
@@ -34,30 +21,20 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Windows.Views
                 OnPropertyChanged();
             }
         }
-
-        private Dictionary<string, string> _selectedOptions;
         public Dictionary<string, string> SelectedOptions
         {
-            get => _selectedOptions;
+            get
+            {
+                return _selectedOptions;
+            }
+
             set
             {
                 _selectedOptions = value;
                 OnPropertyChanged();
             }
         }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        private readonly Dictionary<string, string> _questions;
-        private readonly Dictionary<string, TextBox> _inputControls;
-
-        public Dictionary<string, object> InputValues { get; set; }
-
+        public Dictionary<string, object>? InputValues { get; set; }
         public GatherValuesView(Dictionary<string, string> questions)
         {
             InitializeComponent();
@@ -66,18 +43,27 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Windows.Views
             _inputControls = new Dictionary<string, TextBox>();
             GenerateInputControls();
         }
+        private readonly Dictionary<string, string> _questions;
+        private readonly Dictionary<string, TextBox> _inputControls;
+        private bool _isValidated;
+        private Dictionary<string, string>? _selectedOptions;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
+        private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         private void GenerateInputControls()
         {
             foreach (var question in _questions)
             {
-                TextBlock label = new TextBlock
+                TextBlock label = new()
                 {
                     Text = question.Value,
                     Margin = new Thickness(5)
                 };
 
-                TextBox textBox = new TextBox
+                TextBox textBox = new()
                 {
                     Name = question.Key,
                     Margin = new Thickness(5)
@@ -89,8 +75,6 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Windows.Views
                 InputStackPanel.Children.Add(textBox);
             }
         }
-
-
 
         public override int GetNextStepIndex()
         {
@@ -114,12 +98,12 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Windows.Views
         {
             foreach (var inputControl in _inputControls)
             {
-                if(!selectedOptions.ContainsKey(inputControl.Key))
+                if (!selectedOptions.ContainsKey(inputControl.Key))
                 {
                     selectedOptions.Add(inputControl.Key, inputControl.Value.Text);
                 }
-                
-            }    
+
+            }
         }
     }
 }

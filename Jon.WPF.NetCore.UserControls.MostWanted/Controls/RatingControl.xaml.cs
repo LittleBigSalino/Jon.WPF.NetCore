@@ -7,8 +7,32 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
 {
     public partial class RatingControl : UserControl
     {
+        public double RatingValue
+        {
+            get { return (double)GetValue(RatingValueProperty); }
+            set { SetValue(RatingValueProperty, value); }
+        }
+        public double MaxRatingValue
+        {
+            get { return (double)GetValue(MaxRatingValueProperty); }
+            set { SetValue(MaxRatingValueProperty, value); }
+        }
+        public bool IsReadOnly
+        {
+            get { return (bool)GetValue(IsReadOnlyProperty); }
+            set { SetValue(IsReadOnlyProperty, value); }
+        }
+        public Geometry StarSymbol
+        {
+            get { return (Geometry)GetValue(StarSymbolProperty); }
+            set { SetValue(StarSymbolProperty, value); }
+        }
+        public RatingControl()
+        {
+            InitializeComponent();
+        }
         public static readonly DependencyProperty RatingValueProperty =
-            DependencyProperty.Register("RatingValue", typeof(double), typeof(RatingControl),
+                                                    DependencyProperty.Register("RatingValue", typeof(double), typeof(RatingControl),
                 new FrameworkPropertyMetadata(0.0, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnRatingValueChanged));
 
         public static readonly DependencyProperty MaxRatingValueProperty =
@@ -22,41 +46,19 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
         public static readonly DependencyProperty StarSymbolProperty =
             DependencyProperty.Register("StarSymbol", typeof(Geometry), typeof(RatingControl),
                 new PropertyMetadata(null));
-
-        public RatingControl()
+        public static readonly RoutedEvent RatingValueChangedEvent =
+            EventManager.RegisterRoutedEvent("RatingValueChanged", RoutingStrategy.Bubble,
+                typeof(RoutedPropertyChangedEventHandler<double>), typeof(RatingControl));
+        public event RoutedPropertyChangedEventHandler<double> RatingValueChanged
         {
-            InitializeComponent();
+            add { AddHandler(RatingValueChangedEvent, value); }
+            remove { RemoveHandler(RatingValueChangedEvent, value); }
         }
-
-        public double RatingValue
-        {
-            get { return (double)GetValue(RatingValueProperty); }
-            set { SetValue(RatingValueProperty, value); }
-        }
-
-        public double MaxRatingValue
-        {
-            get { return (double)GetValue(MaxRatingValueProperty); }
-            set { SetValue(MaxRatingValueProperty, value); }
-        }
-
-        public bool IsReadOnly
-        {
-            get { return (bool)GetValue(IsReadOnlyProperty); }
-            set { SetValue(IsReadOnlyProperty, value); }
-        }
-
-        public Geometry StarSymbol
-        {
-            get { return (Geometry)GetValue(StarSymbolProperty); }
-            set { SetValue(StarSymbolProperty, value); }
-        }
-
         private static void OnRatingValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             RatingControl ratingControl = (RatingControl)d;
             ratingControl.UpdateStars();
-            ratingControl.RaiseRatingValueChangedEvent((double)e.OldValue, (double)e.NewValue);
+            ratingControl.RaiseRatingValueChangedEvent();
         }
 
         private void UpdateStars()
@@ -79,22 +81,12 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
             }
         }
 
-        private void RaiseRatingValueChangedEvent(double oldValue, double newValue)
+        private void RaiseRatingValueChangedEvent()
         {
-            RoutedEventArgs args = new RoutedEventArgs(RatingValueChangedEvent, this);
+            RoutedEventArgs args = new(RatingValueChangedEvent, this);
             args.Source = this;
             args.Handled = false;
             RaiseEvent(args);
-        }
-
-        public static readonly RoutedEvent RatingValueChangedEvent =
-            EventManager.RegisterRoutedEvent("RatingValueChanged", RoutingStrategy.Bubble,
-                typeof(RoutedPropertyChangedEventHandler<double>), typeof(RatingControl));
-
-        public event RoutedPropertyChangedEventHandler<double> RatingValueChanged
-        {
-            add { AddHandler(RatingValueChangedEvent, value); }
-            remove { RemoveHandler(RatingValueChangedEvent, value); }
         }
         private void Star_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -134,4 +126,3 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
         }
     }
 }
-

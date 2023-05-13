@@ -120,11 +120,8 @@
 <!--  Move the color palette to Grid.Row="2"  -->
 <!--
 
-
-
     </Grid>
 </UserControl>-->
-
 
 <UserControl
     x:Class="Jon.WPF.NetCore.UserControls.MostWanted.Controls.ColorPicker"
@@ -246,5 +243,4 @@
 
     </Grid>
 </UserControl>
-
 

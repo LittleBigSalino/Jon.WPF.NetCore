@@ -2,18 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Jon.WPF.NetCore.UserControls.MostWanted.Windows
 {
@@ -22,19 +13,6 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Windows
     /// </summary>
     public partial class WizardWindow : Window, INotifyPropertyChanged
     {
-        private int _currentStepIndex;
-        private readonly List<StepBase> _steps;
-        private bool isCurrentScreenValid = false;
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-
-        private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-        // Add a property to store selected options
-        private Dictionary<string, object> _selectedOptions;
         public Dictionary<string, object> SelectedOptions
         {
             get => _selectedOptions;
@@ -43,8 +21,7 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Windows
                 _selectedOptions = value;
                 OnPropertyChanged();
             }
-        }   
-
+        }
         public WizardWindow()
         {
             InitializeComponent();
@@ -55,7 +32,6 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Windows
                 UpdateStep();
             }
         }
-
         public WizardWindow(List<StepBase> screens)
         {
             InitializeComponent();
@@ -67,7 +43,18 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Windows
                 UpdateStep();
             }
         }
+        private readonly List<StepBase> _steps;
+        private int _currentStepIndex;
+        private bool isCurrentScreenValid = false;
 
+        // Add a property to store selected options
+        private Dictionary<string, object> _selectedOptions;
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         private async void UpdateStep()
         {
             ContentArea.Content = _steps[_currentStepIndex];
@@ -100,10 +87,10 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Windows
 
                 // Get the next step index based on the current step's logic
                 _currentStepIndex += _steps[_currentStepIndex].GetNextStepIndex();
-                if(_currentStepIndex == _steps.Count - 2)
+                if (_currentStepIndex == _steps.Count - 2)
                 {
                     /// Pass the selected option to the confirmation screen ///
-                    if(_steps[_currentStepIndex] is ConfirmationView)
+                    if (_steps[_currentStepIndex] is ConfirmationView)
                     {
                         (_steps[_currentStepIndex] as ConfirmationView).SelectedOptions = SelectedOptions;
                     }
@@ -129,7 +116,6 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Windows
             }
             catch (Exception)
             {
-
             }
         }
 
@@ -141,7 +127,6 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Windows
             }
             catch (Exception)
             {
-
             }
         }
 
@@ -153,9 +138,7 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Windows
             }
             catch (Exception)
             {
-
             }
         }
     }
 }
-

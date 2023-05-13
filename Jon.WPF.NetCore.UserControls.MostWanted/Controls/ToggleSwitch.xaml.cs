@@ -1,18 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
 {
@@ -21,6 +12,21 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
     /// </summary>
     public partial class ToggleSwitch : UserControl
     {
+        public string OnText
+        {
+            get { return (string)GetValue(OnTextProperty); }
+            set { SetValue(OnTextProperty, value); }
+        }
+        public string OffText
+        {
+            get { return (string)GetValue(OffTextProperty); }
+            set { SetValue(OffTextProperty, value); }
+        }
+        public bool IsOn
+        {
+            get { return (bool)GetValue(IsOnProperty); }
+            set { SetValue(IsOnProperty, value); }
+        }
         public ToggleSwitch()
         {
             InitializeComponent();
@@ -29,31 +35,11 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
 
         public static readonly DependencyProperty OnTextProperty = DependencyProperty.Register(
             nameof(OnText), typeof(string), typeof(ToggleSwitch), new PropertyMetadata("On"));
-
-        public string OnText
-        {
-            get { return (string)GetValue(OnTextProperty); }
-            set { SetValue(OnTextProperty, value); }
-        }
-
         public static readonly DependencyProperty OffTextProperty = DependencyProperty.Register(
             nameof(OffText), typeof(string), typeof(ToggleSwitch), new PropertyMetadata("Off"));
-
-        public string OffText
-        {
-            get { return (string)GetValue(OffTextProperty); }
-            set { SetValue(OffTextProperty, value); }
-        }
-
         public static readonly DependencyProperty IsOnProperty = DependencyProperty.Register(
             nameof(IsOn), typeof(bool), typeof(ToggleSwitch), new PropertyMetadata(false, OnIsOnPropertyChanged));
-
-        public bool IsOn
-        {
-            get { return (bool)GetValue(IsOnProperty); }
-            set { SetValue(IsOnProperty, value); }
-        }
-
+        public event DependencyPropertyChangedEventHandler? IsOnChanged;
         private static void OnIsOnPropertyChanged(DependencyObject sender, DependencyPropertyChangedEventArgs e)
         {
             if (sender is ToggleSwitch toggleSwitchControl)
@@ -74,10 +60,6 @@ namespace Jon.WPF.NetCore.UserControls.MostWanted.Controls
             IsOn = false;
             UpdateVisualState();
         }
-
-
-        public event DependencyPropertyChangedEventHandler? IsOnChanged;
-
         private void UpdateVisualState()
         {
             if (IsOn)
